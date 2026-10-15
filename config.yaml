@@ -1,0 +1,67 @@
+# Plegma baseline: day-ahead hourly household load forecasting (FLEXI uUBI)
+# Relative paths are resolved against the folder that holds this file.
+
+paths:
+  raw_dir: data/raw              # archive download and extraction
+  processed_dir: data/processed  # hourly parquet tables
+  runs_dir: runs                 # one folder per training run
+
+download:
+  url: https://pureportal.strath.ac.uk/files/180681715/PlegmaDataset_Clean.7z
+  archive_name: PlegmaDataset_Clean.7z
+  landing_page: https://doi.org/10.15129/3b01a6c6-2efd-424a-b8b8-5fe7fa445ded
+
+prepare:
+  clock: fixed_utc3    # auto | fixed_utc3 | local | utc  (confirmed by diagnose: sun and routines, Oct 2022 and Mar 2023)
+  min_coverage: 0.8    # share of valid samples an hour needs to count
+  min_load_w: 1.0      # hourly mean below this counts as missing (mains off or meter dropout)
+  timezone: Europe/Athens
+
+features:
+  weather: actual      # actual (stands in for a perfect day-ahead forecast) | persistence | none
+  use_house_id: false  # one model for any household (true adds the Plegma house ID, ~1% gain in tests)
+  use_static: true
+  lag_days: [1, 2, 3, 7, 14]
+  scale_window_days: 28
+  scale_min_days: 7
+  min_hours_per_day: 18
+  vacation_periods:    # MM-DD ranges, inclusive, may wrap the year end
+    - ["08-01", "08-31"]
+    - ["12-24", "01-06"]
+  tariff_regimes:      # Greek reduced-rate windows in local time, [start_hour, end_hour)
+    - name: night_tariff_classic      # Plegma period (2022-2023)
+      valid_until: "2025-01-31"
+      seasons:
+        - months: [11, 12, 1, 2, 3, 4]
+          windows: [[2, 8], [15, 17]]
+        - months: [5, 6, 7, 8, 9, 10]
+          windows: [[23, 7]]
+    - name: two_zone                  # from 1 Feb 2025, relevant for new FLEXI data
+      valid_from: "2025-02-01"
+      seasons:
+        - months: [11, 12, 1, 2, 3]
+          windows: [[2, 5], [12, 15]]
+        - months: [4, 5, 6, 7, 8, 9, 10]
+          windows: [[2, 4], [11, 15]]
+
+cv:
+  first_test_month: "2023-01"   # rolling origin: one fold per test month
+  last_test_month: null         # null = last month in the data
+  val_days: 28                  # tail of each training window used for early stopping
+  min_test_days: 7              # a test month needs at least this many days to count
+  min_local_train_days: 60      # history a per-house model needs (--compare-local)
+
+model:
+  objective: tweedie     # mean forecast, spread grows with the level (l1 = median, l2 = mean)
+  learning_rate: 0.05
+  num_leaves: 31
+  min_data_in_leaf: 40
+  feature_fraction: 0.8
+  bagging_fraction: 0.8
+  bagging_freq: 1
+  lambda_l2: 1.0
+  max_rounds: 3000
+  early_stopping_rounds: 150
+  default_rounds: 500    # used when a window is too short for early stopping
+  seed: 42
+  num_threads: 0         # 0 = all cores

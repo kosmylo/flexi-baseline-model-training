@@ -1,0 +1,83 @@
+[
+  {
+    "fold": 0,
+    "test_month": "2023-01",
+    "test_start": "2023-01-01",
+    "test_end": "2023-02-01",
+    "rounds": 115,
+    "train_hours": 14790,
+    "test_hours": 4989
+  },
+  {
+    "fold": 1,
+    "test_month": "2023-02",
+    "test_start": "2023-02-01",
+    "test_end": "2023-03-01",
+    "rounds": 37,
+    "train_hours": 19805,
+    "test_hours": 4359
+  },
+  {
+    "fold": 2,
+    "test_month": "2023-03",
+    "test_start": "2023-03-01",
+    "test_end": "2023-04-01",
+    "rounds": 81,
+    "train_hours": 24270,
+    "test_hours": 5787
+  },
+  {
+    "fold": 3,
+    "test_month": "2023-04",
+    "test_start": "2023-04-01",
+    "test_end": "2023-05-01",
+    "rounds": 61,
+    "train_hours": 30132,
+    "test_hours": 6829
+  },
+  {
+    "fold": 4,
+    "test_month": "2023-05",
+    "test_start": "2023-05-01",
+    "test_end": "2023-06-01",
+    "rounds": 140,
+    "train_hours": 37081,
+    "test_hours": 8753
+  },
+  {
+    "fold": 5,
+    "test_month": "2023-06",
+    "test_start": "2023-06-01",
+    "test_end": "2023-07-01",
+    "rounds": 83,
+    "train_hours": 45953,
+    "test_hours": 8123
+  },
+  {
+    "fold": 6,
+    "test_month": "2023-07",
+    "test_start": "2023-07-01",
+    "test_end": "2023-08-01",
+    "rounds": 88,
+    "train_hours": 54305,
+    "test_hours": 8244
+  },
+  {
+    "fold": 7,
+    "test_month": "2023-08",
+    "test_start": "2023-08-01",
+    "test_end": "2023-09-01",
+    "rounds": 64,
+    "train_hours": 62998,
+    "test_hours": 8451
+  },
+  {
+    "fold": 8,
+    "test_month": "2023-09",
+    "test_start": "2023-09-01",
+    "test_end": "2023-10-01",
+    "rounds": 133,
+    "train_hours": 71724,
+    "test_hours": 8485
+  }
+]

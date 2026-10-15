@@ -1,0 +1,34 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below, together with the Plegma dataset."
+title: "plegma-baseline: day-ahead household load forecasting baseline on the Plegma dataset"
+version: 1.0.0
+license: Apache-2.0
+authors:
+  - family-names: Mylonas
+    given-names: Kostas
+    affiliation: UBITECH
+references:
+  - type: article
+    title: "The Plegma dataset: Domestic appliance-level and aggregate electricity demand with metadata from Greece"
+    authors:
+      - family-names: Athanasoulias
+        given-names: Sotirios
+      - family-names: Guasselli
+        given-names: Fernanda
+      - family-names: Doulamis
+        given-names: Nikolaos
+      - family-names: Doulamis
+        given-names: Anastasios
+      - family-names: Ipiotis
+        given-names: Nikolaos
+      - family-names: Katsari
+        given-names: Athina
+      - family-names: Stankovic
+        given-names: Lina
+      - family-names: Stankovic
+        given-names: Vladimir
+    journal: Scientific Data
+    volume: 11
+    start: 376
+    year: 2024
+    doi: 10.1038/s41597-024-03208-0

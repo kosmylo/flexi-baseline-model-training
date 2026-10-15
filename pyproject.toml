@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "plegma-baseline"
+version = "1.0.0"
+description = "Day-ahead household load forecasting baseline on the Plegma dataset (FLEXI uUBI, KPI1.1)"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+authors = [{ name = "Kostas Mylonas" }]
+keywords = ["load forecasting", "household", "smart meter", "LightGBM", "Plegma", "FLEXI"]
+dependencies = [
+    "pandas>=2.1",
+    "numpy>=1.24",
+    "pyarrow>=14",
+    "lightgbm>=4.1",
+    "holidays>=0.40",
+    "python-dateutil>=2.8",
+    "PyYAML>=6.0",
+    "requests>=2.31",
+    "py7zr>=0.20",
+    "matplotlib>=3.7",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[project.scripts]
+plegma-baseline = "plegma_baseline.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["plegma_baseline*"]
+
+[tool.setuptools.package-data]
+plegma_baseline = ["data/*.csv"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]

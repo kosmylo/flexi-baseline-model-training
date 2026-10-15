@@ -1,0 +1,10 @@
+pandas>=2.1
+numpy>=1.24
+pyarrow>=14
+lightgbm>=4.1
+holidays>=0.40
+python-dateutil>=2.8
+PyYAML>=6.0
+requests>=2.31
+py7zr>=0.20
+matplotlib>=3.7

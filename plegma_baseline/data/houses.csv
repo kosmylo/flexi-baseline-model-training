@@ -1,0 +1,14 @@
+house,occupants,built_year,dwelling,rooms,three_phase,heating,n_ac,n_fridge,has_boiler,has_dishwasher,has_washing_machine,has_washer_dryer,has_kettle,n_monitored
+1,1,1970,apartment,3,0,radiator_oil,2,1,1,0,1,0,0,5
+2,1,1965,apartment,3,0,electric_heater,1,1,1,0,1,0,1,5
+3,1,1970,apartment,4,0,ac,2,1,1,0,1,0,0,5
+4,3,2000,apartment,4,0,electric_heater,2,1,1,0,1,0,0,5
+5,3,1980,detached,4,1,radiator_oil,1,1,1,1,1,0,0,5
+6,2,1960,apartment,4,0,radiator_gas,0,1,1,0,1,0,0,3
+7,1,1980,apartment,4,1,air_to_air_heat_pump,2,1,1,0,1,0,0,5
+8,1,2010,apartment,3,0,underfloor,1,1,0,1,1,0,0,4
+9,1,1960,apartment,3,0,electric_heater,0,1,1,0,0,1,0,3
+10,4,2000,apartment,3,0,radiator_oil,2,1,1,1,1,0,0,6
+11,3,1965,apartment,4,0,radiator_oil,3,1,1,0,1,0,0,6
+12,2,1985,apartment,5,1,radiator_oil,1,2,1,1,1,0,0,6
+13,1,1980,apartment,3,0,radiator_gas,1,1,1,0,1,0,0,4

@@ -1,0 +1,93 @@
+{
+  "package_version": "1.0.0",
+  "created": "2026-10-15T20:50:11",
+  "features": [
+    "hour",
+    "dow",
+    "is_day_off",
+    "is_holiday",
+    "month",
+    "doy_sin",
+    "doy_cos",
+    "vacation",
+    "easter_week",
+    "tariff_window",
+    "lag_d1_n",
+    "lag_d2_n",
+    "lag_d3_n",
+    "lag_d7_n",
+    "lag_d14_n",
+    "same_hour_mean7_n",
+    "same_hour_std7_n",
+    "prev_day_mean_n",
+    "prev_day_max_n",
+    "prev_day_min_n",
+    "prev_week_mean_n",
+    "log_scale",
+    "ext_temp",
+    "ext_hum",
+    "temp_day_mean",
+    "temp_day_max",
+    "temp_day_min",
+    "temp_prev_day_mean",
+    "occupants",
+    "rooms",
+    "built_year",
+    "detached",
+    "three_phase",
+    "n_ac",
+    "has_boiler",
+    "has_dishwasher",
+    "heating"
+  ],
+  "categorical": [
+    "heating"
+  ],
+  "final_rounds": 83,
+  "models_evaluated": [
+    "lgbm_global",
+    "naive_d1",
+    "seasonal_d7",
+    "similar_day"
+  ],
+  "evaluated_hours": 64020,
+  "target": "hourly kWh divided by the trailing mean daily load, loss weighted by that scale",
+  "objective": "tweedie",
+  "origin": "local midnight (Europe/Athens) before the target day",
+  "houses": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+  ],
+  "train_hours": 80302,
+  "train_period_utc": [
+    "2022-07-18 21:00:00+00:00",
+    "2023-09-30 20:00:00+00:00"
+  ],
+  "heating_levels": [
+    "ac",
+    "air_to_air_heat_pump",
+    "electric_heater",
+    "radiator_gas",
+    "radiator_oil",
+    "underfloor"
+  ],
+  "data_sha1": "529f90a0680f8a24b82aba615b2ba5b5e3ae1f7c",
+  "extra_features": null,
+  "versions": {
+    "python": "3.11.5",
+    "lightgbm": "4.7.0",
+    "pandas": "3.0.6",
+    "numpy": "2.4.6"
+  }
+}
