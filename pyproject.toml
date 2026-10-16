@@ -24,9 +24,6 @@ dependencies = [
     "matplotlib>=3.7",
 ]
 
-[project.optional-dependencies]
-dev = ["pytest>=7"]
-
 [project.scripts]
 plegma-baseline = "plegma_baseline.__main__:main"
 
@@ -35,7 +32,3 @@ include = ["plegma_baseline*"]
 
 [tool.setuptools.package-data]
 plegma_baseline = ["data/*.csv"]
-
-[tool.pytest.ini_options]
-testpaths = ["tests"]
-python_files = ["test_*.py"]

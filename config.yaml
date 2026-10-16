@@ -19,7 +19,7 @@ prepare:
 
 features:
   weather: actual      # actual (stands in for a perfect day-ahead forecast) | persistence | none
-  use_house_id: false  # one model for any household (true adds the Plegma house ID, ~1% gain in tests)
+  use_house_id: false  # one model for any household (true adds the Plegma house ID, about 1% better on Plegma)
   use_static: true
   lag_days: [1, 2, 3, 7, 14]
   scale_window_days: 28

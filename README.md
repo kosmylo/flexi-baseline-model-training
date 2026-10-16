@@ -30,7 +30,7 @@ Rolling-origin evaluation over the test months January to September 2023: 64,020
 - The Tweedie objective keeps energy totals close to reality and gives the best hourly score of the mean forecasts. The L1 objective scores best per hour because it forecasts the median hour, which leaves out much of the energy in short appliance bursts.
 - For daily totals, the model matches "same as yesterday". Day-to-day changes come from household behaviour, which is the information the FLEXI assistant collects.
 
-These development runs also used the Plegma house ID as an input. The released configuration leaves it out, which changed scores by about 1% in tests. Each exported model carries its own scores in `MODEL_CARD.md`.
+These development runs also used the Plegma house ID as an input. The released configuration leaves it out, which changed scores by about 1% in the cold-start comparison. Each exported model carries its own scores in `MODEL_CARD.md`.
 
 ## Installation
 
@@ -41,7 +41,7 @@ git clone https://github.com/kosmylo/flexi-baseline-model-training plegma-baseli
 cd plegma-baseline
 python -m venv .venv
 source .venv/bin/activate          # Windows: .venv\Scripts\activate
-pip install -e ".[dev]"
+pip install -e .
 ```
 
 ## Quick start
@@ -182,15 +182,6 @@ python -m plegma_baseline compare --a runs/final_tweedie --b runs/context_v1
 | `cv.first_test_month` | `2023-01` | First rolling-origin test month |
 | `model.objective` | `tweedie` | `tweedie`, `l2` or `l1` |
 
-## Tests
-
-```bash
-pytest -q                     # fast tests, about ten seconds
-python tests/smoke_test.py    # full run on synthetic data, a few minutes
-```
-
-The synthetic data follow the folder layout, file names, columns and timestamp format of the clean release. GitHub Actions runs the fast tests on every push.
-
 ## Repository layout
 
 ```
@@ -213,8 +204,7 @@ plegma-baseline/
     compare.py       paired run comparison
     data/houses.csv  household descriptors (Tables 2 and 3)
   models/            exported models
-  examples/          usage examples
-  tests/             fast tests, smoke test, synthetic data
+  examples/          usage example
 ```
 
 ## Citation

@@ -4,7 +4,6 @@ __pycache__/
 *.egg-info/
 build/
 dist/
-.pytest_cache/
 
 # Environments
 .venv/
@@ -13,5 +12,3 @@ dist/
 # Data and training runs stay local (exported models in models/ are committed)
 /data/
 /runs/
-/.smoke/
-/.smoke_*/
